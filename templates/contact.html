@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Phamelord Sneaker Luxe</title>
+</head>
+<body>
+    <h1>Contact About: {{ sneaker_name }}</h1>
+
+    <p>You can send me a WhatsApp message directly:</p>
+    <a href="https://wa.me/{{ phone }}?text=I'm%20interested%20in%20{{ sneaker_name }}">
+        <button style="padding:10px; background:green; color:white; cursor:pointer;">Message on WhatsApp</button>
+    </a>
+    <br><br>
+    <p>Or email me:</p>
+    <a href="mailto:{{ email }}?subject=Sneaker%20Inquiry:%20{{ sneaker_name }}">
+        <button style="padding:10px; background:blue; color:white; cursor:pointer;">Send Email</button>
+    </a>
+    <br><br>
+    <a href="{{ url_for('index') }}">Back to Store</a>
+</body>
+</html>
