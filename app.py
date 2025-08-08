@@ -1,3 +1,8 @@
+
+from flask import Flask, render_template, request, redirect, url_for, flash
+
+app = Flask(__name__)
+app.secret_key = 'your_secret_key_here'  # replace with a strong secret key
 import os
 import json
 from flask import Flask, render_template, request, redirect, url_for, flash
@@ -75,3 +80,16 @@ def contact():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+from flask import request, redirect, url_for, flash
+
+@app.route('/contact', methods=['POST'])
+def contact():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    message = request.form.get('message')
+    
+    # For now, just print the data to console (you can extend to send email later)
+    print(f"New message from {name} ({email}): {message}")
+    
+    flash('Thank you for your message! We will get back to you soon.')
+    return redirect(url_for('index'))
